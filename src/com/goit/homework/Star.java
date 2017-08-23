@@ -1,3 +1,5 @@
+package com.goit.homework;
+
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -11,7 +13,7 @@ import javafx.stage.Stage;
 public class Star extends Application {
 
     public void start(Stage primaryStage) throws Exception {
-        primaryStage.setTitle("Star");
+        primaryStage.setTitle("com.goit.homework.Star");
         primaryStage.setWidth(600);
         primaryStage.setHeight(600);
         Pane root = new Pane();

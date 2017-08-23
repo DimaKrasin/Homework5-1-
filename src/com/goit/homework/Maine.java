@@ -144,7 +144,7 @@ public class Maine extends Application{
                 hollow[0].setFill(Color.RED);
             });
 
-
+/*
             Button btn3 = new Button();
             btn3.setText("Gradient");
             btn3.setTranslateX(450);
@@ -162,8 +162,8 @@ public class Maine extends Application{
                         new Stop(0.60f,Color.BLACK));
                 //for(int i = 0;i<hollow.length;i++){hollow[i].setFill(lg1);}
             });
-
-            root.getChildren().addAll(btn2,btn3);
+*/
+            root.getChildren().addAll(btn2);
 
         });
 
