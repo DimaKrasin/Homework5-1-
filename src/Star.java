@@ -10,8 +10,6 @@ import javafx.stage.Stage;
 
 public class Star extends Application {
 
-    double  k =0.20;
-
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setTitle("Star");
         primaryStage.setWidth(600);
@@ -62,31 +60,81 @@ public class Star extends Application {
             int intY = Integer.parseInt(stringY);
             int intRadius = Integer.parseInt(stringRadius);
 
-            Line centarlLeft = new Line();
-            centarlLeft.setStartX(intX);
-            centarlLeft.setStartY(intY-intRadius);
-            centarlLeft.setEndX(intX - intRadius*k);
-            centarlLeft.setEndY(intY - intRadius*k);
+            double c = (intRadius* Math.sin(Math.toRadians(18)))/Math.sin(Math.toRadians(126));
+            double h = c*Math.sin(Math.toRadians(36));
+            double smallRadius = (h *Math.sin(Math.toRadians(63)))/Math.sin(Math.toRadians(36));
 
-            Line centarlRight = new Line();
-            centarlRight.setStartX(intX);
-            centarlRight.setStartY(intY-intRadius);
-            centarlRight.setEndX(intX + intRadius*k);
-            centarlRight.setEndY(intY - intRadius*k);
+            Line centarRight = new Line();
+            centarRight.setStartX(intX);
+            centarRight.setStartY(intY-intRadius);
+            centarRight.setEndX(intX+h);
+            centarRight.setEndY(intY-smallRadius);
 
-            Line leftTop = new Line();
-            leftTop.setStartX(intX-intRadius);
-            leftTop.setStartY(intY-intRadius*k);
-            leftTop.setEndX(intX - intRadius*k);
-            leftTop.setEndY(intY - intRadius*k);
+            Line centarLight = new Line();
+            centarLight.setStartX(intX);
+            centarLight.setStartY(intY-intRadius);
+            centarLight.setEndX(intX-h);
+            centarLight.setEndY(intY-smallRadius);
+
+            Line rightTop = new Line();
+            rightTop.setStartX(intX+(intRadius*Math.sin(Math.toRadians(72))));
+            rightTop.setStartY(intY-(intRadius*Math.sin(Math.toRadians(18))));
+            rightTop.setEndX(intX+h);
+            rightTop.setEndY(intY-smallRadius);
+
+            Line rightBot = new Line();
+            rightBot.setStartX(intX+(intRadius*Math.sin(Math.toRadians(72))));
+            rightBot.setStartY(intY-(intRadius*Math.sin(Math.toRadians(18))));
+            rightBot.setEndX(intX+(c*Math.sin(Math.toRadians(72))));
+            rightBot.setEndY(intY+(c*Math.sin(Math.toRadians(18))));
+
+            Line botRigthTop = new Line();
+            botRigthTop.setStartX(intX+(intRadius*Math.sin(Math.toRadians(38))));
+            botRigthTop.setStartY(intY+(intRadius*Math.sin(Math.toRadians(54))));
+            botRigthTop.setEndX(intX+(c*Math.sin(Math.toRadians(72))));
+            botRigthTop.setEndY(intY+(c*Math.sin(Math.toRadians(18))));
+
+            Line botRigthBot = new Line();
+            botRigthBot.setStartX(intX+(intRadius*Math.sin(Math.toRadians(38))));
+            botRigthBot.setStartY(intY+(intRadius*Math.sin(Math.toRadians(54))));
+            botRigthBot.setEndX(intX);
+            botRigthBot.setEndY(intY+c);
+
+            Line botLeftBot = new Line();
+            botLeftBot.setStartX(intX-(intRadius*Math.sin(Math.toRadians(38))));
+            botLeftBot.setStartY(intY+(intRadius*Math.sin(Math.toRadians(54))));
+            botLeftBot.setEndX(intX);
+            botLeftBot.setEndY(intY+c);
+
+            Line botLeftTop = new Line();
+            botLeftTop.setStartX(intX-(intRadius*Math.sin(Math.toRadians(38))));
+            botLeftTop.setStartY(intY+(intRadius*Math.sin(Math.toRadians(54))));
+            botLeftTop.setEndX(intX-(c*Math.sin(Math.toRadians(72))));
+            botLeftTop.setEndY(intY+(c*Math.sin(Math.toRadians(18))));
 
             Line leftBot = new Line();
-            leftBot.setStartX(intX-intRadius);
-            leftBot.setStartY(intY-intRadius*k);
-            leftBot.setEndX(intX - intRadius*k);
-            leftBot.setEndY(intY + intRadius*k);
+            leftBot.setStartX(intX-(intRadius*Math.sin(Math.toRadians(72))));
+            leftBot.setStartY(intY-(intRadius*Math.sin(Math.toRadians(18))));
+            leftBot.setEndX(intX-(c*Math.sin(Math.toRadians(72))));
+            leftBot.setEndY(intY+(c*Math.sin(Math.toRadians(18))));
 
-            root.getChildren().addAll(centarlLeft,centarlRight,leftTop,leftBot);
+            Line leftTop = new Line();
+            leftTop.setStartX(intX-(intRadius*Math.sin(Math.toRadians(72))));
+            leftTop.setStartY(intY-(intRadius*Math.sin(Math.toRadians(18))));
+            leftTop.setEndX(intX-h);
+            leftTop.setEndY(intY-smallRadius);
+
+            root.getChildren().addAll(
+                    centarRight,
+                    centarLight,
+                    rightTop,
+                    rightBot,
+                    botRigthTop,
+                    botRigthBot,
+                    botLeftBot,
+                    botLeftTop,
+                    leftBot,
+                    leftTop);
         });
 
 
